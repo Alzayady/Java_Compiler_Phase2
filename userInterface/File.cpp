@@ -29,16 +29,36 @@ int categorize(std::string &line) {
     return 0;
 }
 
+std::vector<std::vector<std::string>> divideProduction(std::string &expression, int st) {
+    std::vector<std::vector<std::string>> val;
+    while(st < expression.size()) {
+        std::vector<std::string> tmp;
+        while(st < expression.size() and expression[st] not_eq '|') {
+            if (expression[st] == ' ') {
+                st++; continue;
+            }
+            std::string str = "";
+            while(st < expression.size() and expression[st] not_eq '|' and expression[st] not_eq ' ') {
+                if (expression[st] != '\'') str += expression[st];
+                st++;
+            }
+            tmp.push_back(str);
+        }
+        if (tmp.size()) val.push_back(tmp);
+        ++st;
+    }
+    return val;
+}
+
 void File::addExpression(std::string expression) {
     if (expression.empty()) return;
-    std::string key = "", val = "";
+    std::string key = "";
     int i = 0;
     for(; expression[i] not_eq '='; ++i) {
         if (expression[i] == ' ' or expression[i] == '#') continue;
         key+=expression[i];
     }
-    val = expression.substr(i+1, expression.size());
-    expressions[key] = val;
+    expressions[key] = divideProduction(expression, i+1);
 }
 
 void File::readFromFile(std::ifstream &file){
