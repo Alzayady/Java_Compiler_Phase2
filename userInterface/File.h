@@ -7,11 +7,12 @@
 
 #include <iostream>
 #include <unordered_map>
+#include <vector>
 
 class File {
 private:
     std::string path;
-    std::unordered_map<std::string, std::string> expressions;
+    std::unordered_map<std::string, std::vector<std::vector<std::string>>> expressions;
     void addExpression(std::string expression);
     void readFromFile(std::ifstream &file);
 public:
