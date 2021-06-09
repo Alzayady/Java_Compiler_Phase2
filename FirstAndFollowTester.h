@@ -21,6 +21,7 @@ public:
         std::unordered_map<std::string, std::unordered_set<std::string>> follow = parsingTableBuilder.get_follow();
         parsingTableBuilder.run_extract_table();
         auto it = parsingTableBuilder.get_table();
+        auto itt = parsingTableBuilder.get_sync_table();
         for (auto a : it) {
             std::cout << a.first.first << "  " << a.first.second << std::endl;
             for (auto b : a.second) {
@@ -28,11 +29,19 @@ public:
             }
             std::cout << std::endl;
             std::cout << std::endl;
-            std::cout << std::endl;
-            std::cout << std::endl;
-            std::cout<<"================================="<<std::endl;
-
+            std::cout << "=================================" << std::endl;
         }
+        std::cout<<"sync"<<std::endl;
+        for (auto a : itt) {
+            std::cout << a.first << "  " << std::endl;
+            for (auto b : a.second) {
+                std::cout << b << " ";
+            }
+            std::cout << std::endl;
+            std::cout << std::endl;
+            std::cout << "=================================" << std::endl;
+        }
+
 
         std::cout << "non_terminal\t\tfirst\t\t\tfollow" << std::endl;
         for (auto &x: first) {

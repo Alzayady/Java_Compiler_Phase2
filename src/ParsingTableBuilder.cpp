@@ -26,15 +26,14 @@ void ParsingTableBuilder::extract_first() {
     first.insert({epsilon, v});
     for (std::pair<std::string, std::vector<std::vector<std::string>>> production: productions) {
         std::set<std::pair<std::vector<std::string>, std::string >> temp;
-        temp = extract_first_recusively(production.first, visited);
-//        first[production.first] = temp;
+        extract_first_recusively(production.first, visited);
     }
     first.erase(epsilon);
 }
 
-std::set<std::pair<std::vector<std::string>, std::string >>ParsingTableBuilder
-::extract_first_recusively(const std::string &lhs_non_terminal,std::unordered_set<std::string> &visited) {
-    std::cout<<"zeft"<<std::endl;
+std::set<std::pair<std::vector<std::string>, std::string >> ParsingTableBuilder
+::extract_first_recusively(const std::string &lhs_non_terminal, std::unordered_set<std::string> &visited) {
+    std::cout << "zeft" << std::endl;
     if (visited.count(lhs_non_terminal)) {
         return first[lhs_non_terminal];
     }
@@ -47,11 +46,12 @@ std::set<std::pair<std::vector<std::string>, std::string >>ParsingTableBuilder
     for (const std::vector<std::string> &y: productions[lhs_non_terminal]) {
         int i = 0;
         for (const std::string &str: y) {
-            std::set<std::pair<std::vector<std::string>, std::string >> result_set = extract_first_recusively(str,visited);
+            std::set<std::pair<std::vector<std::string>, std::string >> result_set = extract_first_recusively(str,
+                                                                                                              visited);
             std::set<std::pair<std::vector<std::string>, std::string >> temp;
 
             for (std::pair<std::vector<std::string>, std::string> it : result_set) {
-                temp.insert({y,it.second});
+                temp.insert({y, it.second});
             }
             result_set = temp;
 
@@ -151,6 +151,9 @@ void ParsingTableBuilder::run_extract_table() {
             temp.first.first = it.first;
             temp.first.second = sec.second;
             temp.second = sec.first;
+            if (table[{it.first, sec.second}].size() != 0) {
+                is_ambiguous = true;
+            }
             table.insert(temp);
         }
         if (have_epsilon(first[it.first])) {
@@ -163,7 +166,7 @@ void ParsingTableBuilder::run_extract_table() {
             }
         } else {
             for (std::string sec: follow[it.first]) {
-                sync_table[it.first].push_back(sec);
+                sync_table[it.first].insert(sec);
             }
         }
     }

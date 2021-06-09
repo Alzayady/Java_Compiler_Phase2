@@ -36,8 +36,12 @@ public:
         return table;
     }
 
-    std::map<std::string, std::vector<std::string>> get_sync_table() {
+    std::map<std::string, std::unordered_set<std::string>> get_sync_table() {
         return sync_table;
+    }
+
+    bool Is_ambiguous() {
+        return is_ambiguous;
     }
 
 
@@ -51,8 +55,9 @@ private:
     std::unordered_map<std::string, std::unordered_set<std::string>> follow;
     std::string starting_symbol;
     std::string epsilon = "Epsilon";
-        std::map<std::pair<std::string, std::string>, std::vector<std::string>> table;
-        std::map<std::string, std::vector<std::string>> sync_table;
+    std::map<std::pair<std::string, std::string>, std::vector<std::string>> table;
+    std::map<std::string, std::unordered_set<std::string>> sync_table;
+    bool is_ambiguous = false;
 
 
     std::set<std::pair<std::vector<std::string>, std::string >>
@@ -62,6 +67,7 @@ private:
     std::string get_last_non_terminal(int &index, std::vector<std::string> vector);
 
     bool have_epsilon(std::set<std::pair<std::vector<std::string>, std::string>> &tokens);
+
 
 };
 
