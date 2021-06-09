@@ -33,7 +33,6 @@ void ParsingTableBuilder::extract_first() {
 
 std::set<std::pair<std::vector<std::string>, std::string >> ParsingTableBuilder
 ::extract_first_recusively(const std::string &lhs_non_terminal, std::unordered_set<std::string> &visited) {
-//    std::cout << "zeft" << std::endl ;
     if (visited.count(lhs_non_terminal)) {
         return first[lhs_non_terminal];
     }
@@ -152,9 +151,9 @@ void ParsingTableBuilder::run_extract_table() {
             temp.first.second = sec.second;
             temp.second = sec.first;
             if (table[{it.first, sec.second}].size() != 0) {
-                is_ambiguous = true;
+                throw "the productions are ambiguous";
             }
-            table[{it.first , sec.second}] = temp.second ;
+            table[{it.first, sec.second}] = sec.first; // t - > t E'
 //            table.insert(temp);
         }
         if (have_epsilon(first[it.first])) {
@@ -173,4 +172,30 @@ void ParsingTableBuilder::run_extract_table() {
     }
 }
 
+void ParsingTableBuilder::build() {
+    extract_first();
+    extract_follow();
+    print_first_follow();
+    run_extract_table();
+}
+
+void ParsingTableBuilder::print_first_follow() {
+    std::cout << "non_terminal\t\t\tfirst\t\t\tfollow" << std::endl;
+    for (auto &x: first) {
+        if (!is_terminal[x.first] && x.first != epsilon) {
+            std::string non_terminal = x.first;
+            std::cout << x.first + "\t\t\t";
+            std::cout << "{ ";
+            for (const auto &it : x.second) {
+                std::cout << it.second + ", ";
+            }
+            std::cout << "}\t\t\t";
+            std::cout << "{ ";
+            for (const auto &it : follow[x.first]) {
+                std::cout << it + ", ";
+            }
+            std::cout << "}" << std::endl;
+        }
+    }
+}
 

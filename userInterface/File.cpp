@@ -5,7 +5,8 @@
 #include "File.h"
 #include <regex>
 #include <fstream>
-
+#include <set>
+#include "../def/ParsingTableBuilder.h"
 File::File(std::string path) {
     this->path = path;
 }
@@ -13,32 +14,62 @@ File::File(std::string path) {
 File::~File() {}
 
 int categorize(std::string &line) {
-    std::string space = "(\\s)*";
-    std::string startLine = space + "#" + space;
-    std::string id = "[a-zA-Z][a-zA-Z0-9_]*" + space;
-    std::string eq = "=" + space;
-    std::string terminal = R"(((\'.+\')|(\\L)))" + space;
-    std::string subVal = "((" + id + "|" + terminal + ")(\\s+" + id + "|" + terminal + ")*)" + space;
-    std::string val = "(" + subVal + "(\\|" + space + subVal + ")*)";
-    std::string originalExpression = startLine + id + eq + val;
-    std::string continueExpression = space + "(\\|" + space + subVal + ")+";
-    std::regex regOriginal(originalExpression);
-    std::regex regContinue(continueExpression);
+    static std::string space = "(\\s)*";
+    static std::string startLine = space + "#" + space;
+    static std::string id = "[a-zA-Z][a-zA-Z0-9_]*" + space;
+    static std::string eq = "=" + space;
+    static std::string terminal = R"(((\'.+\')|(\\L)))" + space;
+    static std::string subVal = "((" + id + "|" + terminal + ")(\\s+" + id + "|" + terminal + ")*)" + space;
+    static std::string val = "(" + subVal + "(\\|" + space + subVal + ")*)";
+    static std::string originalExpression = startLine + id + eq + val;
+    static std::string continueExpression = space + "(\\|" + space + subVal + ")+";
+    static std::regex regOriginal(originalExpression);
+    static std::regex regContinue(continueExpression);
     if (regex_match(line,regOriginal)) return File::ORIGINAL;
     if (regex_match(line,regContinue)) return File::CONTINUE;
     return 0;
 }
 
+std::vector<std::vector<std::string>> File::divideProduction(std::string &expression, int st) {
+    std::vector<std::vector<std::string>> val;
+    while(st < expression.size()) {
+        std::vector<std::string> tmp;
+        while(st < expression.size() and expression[st] not_eq '|') {
+            if (expression[st] == ' ') {
+                st++; continue;
+            }
+            std::string str = "";
+            if (expression[st] == '\'') {
+                ++st;
+                while(expression[st] not_eq '\'') {
+                    str += expression[st++];
+                }
+                ++st;
+                is_terminal[str] = true;
+            } else {
+                while(st < expression.size() and expression[st] not_eq '|' and expression[st] not_eq ' ') {
+                    str += expression[st++];
+                }
+            }
+            tmp.push_back(str);
+        }
+        if (tmp.size()) val.push_back(tmp);
+        ++st;
+    }
+    return val;
+}
+
 void File::addExpression(std::string expression) {
     if (expression.empty()) return;
-    std::string key = "", val = "";
+    std::string key = "";
     int i = 0;
     for(; expression[i] not_eq '='; ++i) {
         if (expression[i] == ' ' or expression[i] == '#') continue;
         key+=expression[i];
     }
-    val = expression.substr(i+1, expression.size());
-    expressions[key] = val;
+    static bool ok = (start = key, true);
+
+    expressions[key] = divideProduction(expression, i+1);
 }
 
 void File::readFromFile(std::ifstream &file){
@@ -56,8 +87,9 @@ void File::readFromFile(std::ifstream &file){
     addExpression(exp);
 }
 
-void sendToParserTable() {
-    //call method of salama to send map
+void File::sendToParserTable() {
+    ParsingTableBuilder parsingTableBuilder(expressions, is_terminal, start);
+    parsingTableBuilder.build();
 }
 
 void File::go() {

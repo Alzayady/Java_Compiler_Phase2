@@ -6,7 +6,6 @@
 #define JAVA_COMPILER_PHASE2_FIRSTANDFOLLOWTESTER_H
 
 #include <set>
-#include <def/InputMatcher.h>
 #include "./def/ParsingTableBuilder.h"
 
 class FirstAndFollowTester {
@@ -16,8 +15,7 @@ public:
         std::unordered_map<std::string, bool> is_terminal = generate_is_terminal_map();
 
         ParsingTableBuilder parsingTableBuilder(productions, is_terminal, "E");
-        parsingTableBuilder.extract_first();
-        parsingTableBuilder.extract_follow();
+        parsingTableBuilder.build();
         std::unordered_map<std::string, std::set<std::pair<std::vector<std::string>, std::string>>> first = parsingTableBuilder.get_first();
         std::unordered_map<std::string, std::unordered_set<std::string>> follow = parsingTableBuilder.get_follow();
         parsingTableBuilder.run_extract_table();
@@ -32,7 +30,7 @@ public:
             std::cout << std::endl;
             std::cout << "=================================" << std::endl;
         }
-        std::cout << "sync" << std::endl;
+        std::cout<<"sync"<<std::endl;
         for (auto a : itt) {
             std::cout << a.first << "  " << std::endl;
             for (auto b : a.second) {
@@ -41,32 +39,6 @@ public:
             std::cout << std::endl;
             std::cout << std::endl;
             std::cout << "=================================" << std::endl;
-        }
-
-
-        std::cout << "non_terminal\t\tfirst\t\t\tfollow" << std::endl;
-        for (auto &x: first) {
-            if (!is_terminal[x.first] && x.first != "Epsilon") {
-                std::string non_terminal = x.first;
-                std::cout << x.first + "\t\t\t";
-                std::cout << "{ ";
-                for (const auto &it : x.second) {
-                    std::cout << it.second + ", ";
-                }
-                std::cout << "}\t\t";
-                std::cout << "{ ";
-                for (const auto &it : follow[x.first]) {
-                    std::cout << it + ", ";
-                }
-                std::cout << "}" << std::endl;
-            }
-        }
-        std::cout << "NOw we are going enter input and try to get a match " << std::endl;
-
-        InputMatcher in(parsingTableBuilder.get_table() , parsingTableBuilder.get_sync_table() ,"E") ;
-        vector<string> ans = in.match({"id", "+", "id", "$"})  ;
-        for(auto &s : ans ) {
-            std::cout << s << std::endl;
         }
     }
 

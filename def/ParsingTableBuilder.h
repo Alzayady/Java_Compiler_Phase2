@@ -19,10 +19,6 @@ public:
 
     }
 
-    void extract_first();
-
-    void extract_follow();
-
 
     std::unordered_map<std::string, std::set<std::pair<std::vector<std::string>, std::string>>> get_first() {
         return first;
@@ -40,10 +36,7 @@ public:
         return sync_table;
     }
 
-    bool Is_ambiguous() {
-        return is_ambiguous;
-    }
-
+    void build();
 
     void run_extract_table();
 
@@ -54,11 +47,9 @@ private:
     //                                                               production    , symbol
     std::unordered_map<std::string, std::unordered_set<std::string>> follow;
     std::string starting_symbol;
-    std::string epsilon = "Epsilon";
+    std::string epsilon = "\\L";
     std::map<std::pair<std::string, std::string>, std::vector<std::string>> table;
     std::map<std::string, std::unordered_set<std::string>> sync_table;
-    bool is_ambiguous = false;
-
 
     std::set<std::pair<std::vector<std::string>, std::string >>
     extract_first_recusively(const std::string &lhs_non_terminal,
@@ -68,6 +59,11 @@ private:
 
     bool have_epsilon(std::set<std::pair<std::vector<std::string>, std::string>> &tokens);
 
+    void extract_first();
+
+    void extract_follow();
+
+    void print_first_follow();
 
 };
 

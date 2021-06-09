@@ -1,0 +1,82 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+F:/SYNCED/3rd year - 2nd term/Compilers/Java_Compiler_phase_2/Java_Compiler_Phase2/FirstAndFollowTester.h
+set
+-
+./def/ParsingTableBuilder.h
+F:/SYNCED/3rd year - 2nd term/Compilers/Java_Compiler_phase_2/Java_Compiler_Phase2/def/ParsingTableBuilder.h
+
+F:/SYNCED/3rd year - 2nd term/Compilers/Java_Compiler_phase_2/Java_Compiler_Phase2/def/InputMatcher.h
+vector
+-
+string
+-
+map
+-
+unordered_set
+-
+iostream
+-
+algorithm
+-
+
+F:/SYNCED/3rd year - 2nd term/Compilers/Java_Compiler_phase_2/Java_Compiler_Phase2/def/ParsingTableBuilder.h
+iostream
+-
+vector
+-
+unordered_map
+-
+unordered_set
+-
+map
+-
+
+F:/SYNCED/3rd year - 2nd term/Compilers/Java_Compiler_phase_2/Java_Compiler_Phase2/main.cpp
+iostream
+-
+userInterface/File.h
+F:/SYNCED/3rd year - 2nd term/Compilers/Java_Compiler_phase_2/Java_Compiler_Phase2/userInterface/File.h
+unordered_map
+-
+FirstAndFollowTester.h
+F:/SYNCED/3rd year - 2nd term/Compilers/Java_Compiler_phase_2/Java_Compiler_Phase2/FirstAndFollowTester.h
+
+F:/SYNCED/3rd year - 2nd term/Compilers/Java_Compiler_phase_2/Java_Compiler_Phase2/src/InputMatcher.cpp
+../def/InputMatcher.h
+F:/SYNCED/3rd year - 2nd term/Compilers/Java_Compiler_phase_2/Java_Compiler_Phase2/def/InputMatcher.h
+
+F:/SYNCED/3rd year - 2nd term/Compilers/Java_Compiler_phase_2/Java_Compiler_Phase2/src/ParsingTableBuilder.cpp
+set
+-
+map
+-
+../def/ParsingTableBuilder.h
+F:/SYNCED/3rd year - 2nd term/Compilers/Java_Compiler_phase_2/Java_Compiler_Phase2/def/ParsingTableBuilder.h
+
+F:/SYNCED/3rd year - 2nd term/Compilers/Java_Compiler_phase_2/Java_Compiler_Phase2/userInterface/File.cpp
+File.h
+F:/SYNCED/3rd year - 2nd term/Compilers/Java_Compiler_phase_2/Java_Compiler_Phase2/userInterface/File.h
+regex
+-
+fstream
+-
+set
+-
+../def/ParsingTableBuilder.h
+F:/SYNCED/3rd year - 2nd term/Compilers/Java_Compiler_phase_2/Java_Compiler_Phase2/def/ParsingTableBuilder.h
+
+F:/SYNCED/3rd year - 2nd term/Compilers/Java_Compiler_phase_2/Java_Compiler_Phase2/userInterface/File.h
+iostream
+-
+unordered_map
+-
+vector
+-
+
