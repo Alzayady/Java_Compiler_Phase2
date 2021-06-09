@@ -4,6 +4,7 @@
 
 #include <set>
 #include <map>
+#include <assert.h>
 #include "../def/ParsingTableBuilder.h"
 
 
@@ -151,10 +152,31 @@ void ParsingTableBuilder::run_extract_table() {
             temp.first.first = it.first;
             temp.first.second = sec.second;
             temp.second = sec.first;
-            if (table[{it.first, sec.second}].size() != 0) {
-                throw "the productions are ambiguous";
+            std::vector<std::string> existed = table[{it.first, sec.second}];
+            if (!existed.empty()) {
+                bool equal = existed.size() == sec.first.size();
+                for (int i = 0; i < std::min(existed.size(), sec.first.size()); i += 1) {
+                    if (existed[i] == sec.first[i]) {
+                        equal = false;
+                    }
+                }
+                for(auto v : existed) {
+                    std::cerr << v << ' ' ;
+                }
+                std::cerr << std::endl;
+                for(auto v : sec.first) {
+                    std::cerr << v << ' ' ;
+                }
+                std::cerr << std::endl;
+                assert(equal);
             }
-            table.insert(temp);
+            table[{it.first, sec.second}] = temp.second;
+//            if (table[{it.first, sec.second}].size() != 0) {
+//                for (int i = 0; i < std::min(temp.first))
+//                    assert(false);
+////                throw "the productions are ambiguous";
+//            }
+//            table.insert(temp);
         }
         if (have_epsilon(first[it.first])) {
             for (std::string sec: follow[it.first]) {
