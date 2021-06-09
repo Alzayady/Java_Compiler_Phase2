@@ -14,9 +14,11 @@ private:
     std::string path;
     std::unordered_map<std::string, std::vector<std::vector<std::string>>> expressions;
     std::string start;
+    std::unordered_map<std::string, bool> is_terminal;
     void addExpression(std::string expression);
     void readFromFile(std::ifstream &file);
     void sendToParserTable();
+    std::vector<std::vector<std::string>> divideProduction(std::string &expression, int st);
 public:
     static const char ORIGINAL = 'o';
     static const char CONTINUE = 'c';
