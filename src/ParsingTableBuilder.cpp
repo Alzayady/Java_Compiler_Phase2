@@ -182,7 +182,7 @@ void ParsingTableBuilder::build() {
 void ParsingTableBuilder::print_first_follow() {
     std::cout << "non_terminal\t\t\t\tfirst\t\t\t\t\tfollow" << std::endl;
     for (auto &x: first) {
-        if (!is_terminal[x.first] && x.first != "Epsilon") {
+        if (!is_terminal[x.first] && x.first != epsilon) {
             std::string non_terminal = x.first;
             std::cout << x.first + "\t\t\t\t\t";
             std::cout << "{ ";
