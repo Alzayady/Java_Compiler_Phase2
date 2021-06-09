@@ -19,6 +19,8 @@ public:
         parsingTableBuilder.extract_follow();
         std::unordered_map<std::string, std::set<std::pair<std::vector<std::string>, std::string>>>  first = parsingTableBuilder.get_first();
         std::unordered_map<std::string, std::unordered_set<std::string>> follow = parsingTableBuilder.get_follow();
+        parsingTableBuilder.run_extract_table();
+
         std::cout << "non_terminal\t\tfirst\t\t\tfollow" <<std::endl;
         for(auto &x: first)
         {

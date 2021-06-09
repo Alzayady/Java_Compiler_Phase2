@@ -21,6 +21,8 @@ unordered_map
 -
 unordered_set
 -
+map
+-
 
 /home/zayadi/Desktop/com/Java_Compiler_Phase2/main.cpp
 iostream
@@ -31,6 +33,14 @@ unordered_map
 -
 FirstAndFollowTester.h
 /home/zayadi/Desktop/com/Java_Compiler_Phase2/FirstAndFollowTester.h
+
+/home/zayadi/Desktop/com/Java_Compiler_Phase2/src/ParsingTableBuilder.cpp
+set
+-
+map
+-
+../def/ParsingTableBuilder.h
+/home/zayadi/Desktop/com/Java_Compiler_Phase2/def/ParsingTableBuilder.h
 
 /home/zayadi/Desktop/com/Java_Compiler_Phase2/userInterface/File.h
 iostream

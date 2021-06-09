@@ -9,6 +9,7 @@
 #include <vector>
 #include <unordered_map>
 #include <unordered_set>
+#include <map>
 
 class ParsingTableBuilder {
 public:
@@ -40,6 +41,8 @@ public:
     }
 
 
+    void run_extract_table();
+
 private:
     std::unordered_map<std::string, std::vector<std::vector<std::string>>> productions;
     std::unordered_map<std::string, bool> is_terminal;
@@ -48,8 +51,8 @@ private:
     std::unordered_map<std::string, std::unordered_set<std::string>> follow;
     std::string starting_symbol;
     std::string epsilon = "Epsilon";
-    std::map<std::pair<std::string, std::string>, std::vector<std::string>> table;
-    std::map<std::string, std::vector<std::string>> sync_table;
+        std::map<std::pair<std::string, std::string>, std::vector<std::string>> table;
+        std::map<std::string, std::vector<std::string>> sync_table;
 
 
     std::set<std::pair<std::vector<std::string>, std::string >>
@@ -60,7 +63,6 @@ private:
 
     bool have_epsilon(std::set<std::pair<std::vector<std::string>, std::string>> &tokens);
 
-    void run_extract_table();
 };
 
 #endif //JAVA_COMPILER_PHASE2_PARSINGTABLEBUILDER_H
