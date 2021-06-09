@@ -14,6 +14,5 @@ int main() {
         std::cout << "In line " + line << std::endl;
     }
 
-
     return 0;
 }
