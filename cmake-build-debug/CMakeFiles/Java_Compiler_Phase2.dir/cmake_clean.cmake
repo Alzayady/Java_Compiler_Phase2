@@ -1,11 +1,9 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/Java_Compiler_Phase2.dir/main.cpp.obj"
-  "CMakeFiles/Java_Compiler_Phase2.dir/src/ParsingTableBuilder.cpp.obj"
-  "CMakeFiles/Java_Compiler_Phase2.dir/userInterface/File.cpp.obj"
-  "Java_Compiler_Phase2.exe"
-  "Java_Compiler_Phase2.exe.manifest"
+  "CMakeFiles/Java_Compiler_Phase2.dir/main.cpp.o"
+  "CMakeFiles/Java_Compiler_Phase2.dir/src/ParsingTableBuilder.cpp.o"
+  "CMakeFiles/Java_Compiler_Phase2.dir/userInterface/File.cpp.o"
+  "Java_Compiler_Phase2"
   "Java_Compiler_Phase2.pdb"
-  "libJava_Compiler_Phase2.dll.a"
 )
 
 # Per-language clean rules from dependency scanning.

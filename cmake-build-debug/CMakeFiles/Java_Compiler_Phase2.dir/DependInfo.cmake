@@ -4,9 +4,9 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "D:/Study/projects/Parser/Java_Compiler_Phase2/main.cpp" "D:/Study/projects/Parser/Java_Compiler_Phase2/cmake-build-debug/CMakeFiles/Java_Compiler_Phase2.dir/main.cpp.obj"
-  "D:/Study/projects/Parser/Java_Compiler_Phase2/src/ParsingTableBuilder.cpp" "D:/Study/projects/Parser/Java_Compiler_Phase2/cmake-build-debug/CMakeFiles/Java_Compiler_Phase2.dir/src/ParsingTableBuilder.cpp.obj"
-  "D:/Study/projects/Parser/Java_Compiler_Phase2/userInterface/File.cpp" "D:/Study/projects/Parser/Java_Compiler_Phase2/cmake-build-debug/CMakeFiles/Java_Compiler_Phase2.dir/userInterface/File.cpp.obj"
+  "/home/zayadi/Desktop/com/Java_Compiler_Phase2/main.cpp" "/home/zayadi/Desktop/com/Java_Compiler_Phase2/cmake-build-debug/CMakeFiles/Java_Compiler_Phase2.dir/main.cpp.o"
+  "/home/zayadi/Desktop/com/Java_Compiler_Phase2/src/ParsingTableBuilder.cpp" "/home/zayadi/Desktop/com/Java_Compiler_Phase2/cmake-build-debug/CMakeFiles/Java_Compiler_Phase2.dir/src/ParsingTableBuilder.cpp.o"
+  "/home/zayadi/Desktop/com/Java_Compiler_Phase2/userInterface/File.cpp" "/home/zayadi/Desktop/com/Java_Compiler_Phase2/cmake-build-debug/CMakeFiles/Java_Compiler_Phase2.dir/userInterface/File.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

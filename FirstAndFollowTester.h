@@ -5,6 +5,7 @@
 #ifndef JAVA_COMPILER_PHASE2_FIRSTANDFOLLOWTESTER_H
 #define JAVA_COMPILER_PHASE2_FIRSTANDFOLLOWTESTER_H
 
+#include <set>
 #include "./def/ParsingTableBuilder.h"
 
 class FirstAndFollowTester {
@@ -12,10 +13,11 @@ public:
     static void unit_test(){
         std::unordered_map<std::string, std::vector<std::vector<std::string>>> productions = generate_productions();
         std::unordered_map<std::string, bool> is_terminal = generate_is_terminal_map();
+
         ParsingTableBuilder parsingTableBuilder(productions, is_terminal, "E");
         parsingTableBuilder.extract_first();
         parsingTableBuilder.extract_follow();
-        std::unordered_map<std::string, std::unordered_set<std::string>> first = parsingTableBuilder.get_first();
+        std::unordered_map<std::string, std::set<std::pair<std::vector<std::string>, std::string>>>  first = parsingTableBuilder.get_first();
         std::unordered_map<std::string, std::unordered_set<std::string>> follow = parsingTableBuilder.get_follow();
         std::cout << "non_terminal\t\tfirst\t\t\tfollow" <<std::endl;
         for(auto &x: first)
@@ -27,7 +29,7 @@ public:
                 std::cout << "{ ";
                 for(const auto & it : x.second)
                 {
-                    std::cout << it+", ";
+                    std::cout << it.second+", ";
                 }
                 std::cout << "}\t\t";
                 std::cout << "{ ";
