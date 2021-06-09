@@ -90,6 +90,9 @@ void File::readFromFile(std::ifstream &file){
 
 void File::sendToParserTable() {
     ParsingTableBuilder parsingTableBuilder(expressions, is_terminal, start);
+    parsingTableBuilder.extract_first();
+    parsingTableBuilder.extract_follow();
+    parsingTableBuilder.run_extract_table();
 }
 
 void File::go() {
