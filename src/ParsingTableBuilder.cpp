@@ -27,14 +27,14 @@ void ParsingTableBuilder::extract_first() {
     for (std::pair<std::string, std::vector<std::vector<std::string>>> production: productions) {
         std::set<std::pair<std::vector<std::string>, std::string >> temp;
         temp = extract_first_recusively(production.first, visited);
-        first[production.first] = temp;
+//        first[production.first] = temp;
     }
     first.erase(epsilon);
 }
 
-std::set<std::pair<std::vector<std::string>, std::string >>
-ParsingTableBuilder::extract_first_recusively(const std::string &lhs_non_terminal,
-                                              std::unordered_set<std::string> &visited) {
+std::set<std::pair<std::vector<std::string>, std::string >>ParsingTableBuilder
+::extract_first_recusively(const std::string &lhs_non_terminal,std::unordered_set<std::string> &visited) {
+    std::cout<<"zeft"<<std::endl;
     if (visited.count(lhs_non_terminal)) {
         return first[lhs_non_terminal];
     }
@@ -47,8 +47,14 @@ ParsingTableBuilder::extract_first_recusively(const std::string &lhs_non_termina
     for (const std::vector<std::string> &y: productions[lhs_non_terminal]) {
         int i = 0;
         for (const std::string &str: y) {
-            std::set<std::pair<std::vector<std::string>, std::string >>
-                    result_set = extract_first_recusively(str, visited);
+            std::set<std::pair<std::vector<std::string>, std::string >> result_set = extract_first_recusively(str,visited);
+            std::set<std::pair<std::vector<std::string>, std::string >> temp;
+
+            for (std::pair<std::vector<std::string>, std::string> it : result_set) {
+                temp.insert({y,it.second});
+            }
+            result_set = temp;
+
             first[lhs_non_terminal].insert(result_set.begin(), result_set.end());
             bool is_epsilon_exist = false;
             for (const auto &it : result_set) {
