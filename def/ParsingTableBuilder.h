@@ -40,10 +40,6 @@ public:
         return sync_table;
     }
 
-    bool Is_ambiguous() {
-        return is_ambiguous;
-    }
-
 
     void run_extract_table();
 
@@ -57,7 +53,6 @@ private:
     std::string epsilon = "Epsilon";
     std::map<std::pair<std::string, std::string>, std::vector<std::string>> table;
     std::map<std::string, std::unordered_set<std::string>> sync_table;
-    bool is_ambiguous = false;
 
 
     std::set<std::pair<std::vector<std::string>, std::string >>
