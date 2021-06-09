@@ -6,6 +6,7 @@
 // Created by Hamza  on 6/9/2021.
 //
 bool debug_mode = false;
+const string epsilon = "Epsilon";
 
 vector<string> InputMatcher::match_helper(vector<string> input) {
     unordered_set<string> non_terminals;
@@ -56,7 +57,7 @@ vector<string> InputMatcher::match_helper(vector<string> input) {
                 // push the states backward in the stack
                 vector<string> logs;
                 for (auto itr = new_states.rbegin(); itr != new_states.rend(); itr++) {
-                    if (*itr != "eps") {
+                    if (*itr != epsilon) {
                         stk.push_back(*itr);
                     }
                     logs.push_back(*itr);
@@ -85,8 +86,8 @@ vector<string> InputMatcher::match_helper(vector<string> input) {
                 ans.emplace_back("missing " + input[i] + " the token " + input[i] + " inserted");
             }
         }
-
-        std::cout << "Log: " << ans.back() << std::endl;
+        if (debug_mode)
+            std::cout << "Log: " << ans.back() << std::endl;
 
 
     }

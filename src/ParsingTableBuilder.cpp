@@ -33,7 +33,7 @@ void ParsingTableBuilder::extract_first() {
 
 std::set<std::pair<std::vector<std::string>, std::string >> ParsingTableBuilder
 ::extract_first_recusively(const std::string &lhs_non_terminal, std::unordered_set<std::string> &visited) {
-    std::cout << "zeft" << std::endl;
+//    std::cout << "zeft" << std::endl ;
     if (visited.count(lhs_non_terminal)) {
         return first[lhs_non_terminal];
     }
@@ -154,7 +154,8 @@ void ParsingTableBuilder::run_extract_table() {
             if (table[{it.first, sec.second}].size() != 0) {
                 is_ambiguous = true;
             }
-            table.insert(temp);
+            table[{it.first , sec.second}] = temp.second ;
+//            table.insert(temp);
         }
         if (have_epsilon(first[it.first])) {
             for (std::string sec: follow[it.first]) {
