@@ -13,8 +13,10 @@ class File {
 private:
     std::string path;
     std::unordered_map<std::string, std::vector<std::vector<std::string>>> expressions;
+    std::string start;
     void addExpression(std::string expression);
     void readFromFile(std::ifstream &file);
+    void sendToParserTable();
 public:
     static const char ORIGINAL = 'o';
     static const char CONTINUE = 'c';
