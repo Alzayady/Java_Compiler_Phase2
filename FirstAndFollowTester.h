@@ -6,6 +6,7 @@
 #define JAVA_COMPILER_PHASE2_FIRSTANDFOLLOWTESTER_H
 
 #include <set>
+#include <def/InputMatcher.h>
 #include "./def/ParsingTableBuilder.h"
 
 class FirstAndFollowTester {
@@ -31,7 +32,7 @@ public:
             std::cout << std::endl;
             std::cout << "=================================" << std::endl;
         }
-        std::cout<<"sync"<<std::endl;
+        std::cout << "sync" << std::endl;
         for (auto a : itt) {
             std::cout << a.first << "  " << std::endl;
             for (auto b : a.second) {
@@ -59,6 +60,13 @@ public:
                 }
                 std::cout << "}" << std::endl;
             }
+        }
+        std::cout << "NOw we are going enter input and try to get a match " << std::endl;
+
+        InputMatcher in(parsingTableBuilder.get_table() , parsingTableBuilder.get_sync_table() ,"E") ;
+        vector<string> ans = in.match({"id", "+", "id", "$"})  ;
+        for(auto &s : ans ) {
+            std::cout << s << std::endl;
         }
     }
 
