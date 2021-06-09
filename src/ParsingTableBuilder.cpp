@@ -152,7 +152,7 @@ void ParsingTableBuilder::run_extract_table() {
             temp.first.second = sec.second;
             temp.second = sec.first;
             if (table[{it.first, sec.second}].size() != 0) {
-                is_ambiguous = true;
+                throw "the productions are ambiguous";
             }
             table.insert(temp);
         }
