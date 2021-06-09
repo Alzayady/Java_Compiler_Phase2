@@ -42,7 +42,23 @@ public:
         }
 
 
-
+//        std::cout << "non_terminal\t\tfirst\t\t\tfollow" << std::endl;
+//        for (auto &x: first) {
+//            if (!is_terminal[x.first] && x.first != "Epsilon") {
+//                std::string non_terminal = x.first;
+//                std::cout << x.first + "\t\t\t";
+//                std::cout << "{ ";
+//                for (const auto &it : x.second) {
+//                    std::cout << it.second + ", ";
+//                }
+//                std::cout << "}\t\t";
+//                std::cout << "{ ";
+//                for (const auto &it : follow[x.first]) {
+//                    std::cout << it + ", ";
+//                }
+//                std::cout << "}" << std::endl;
+//            }
+//        }
     }
 
     static std::unordered_map<std::string, bool> generate_is_terminal_map() {

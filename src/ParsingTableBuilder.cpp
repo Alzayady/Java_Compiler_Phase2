@@ -4,7 +4,6 @@
 
 #include <set>
 #include <map>
-#include <assert.h>
 #include "../def/ParsingTableBuilder.h"
 
 
@@ -34,7 +33,7 @@ void ParsingTableBuilder::extract_first() {
 
 std::set<std::pair<std::vector<std::string>, std::string >> ParsingTableBuilder
 ::extract_first_recusively(const std::string &lhs_non_terminal, std::unordered_set<std::string> &visited) {
-//    std::cout << "zeft" << std::endl;
+    std::cout << "zeft" << std::endl;
     if (visited.count(lhs_non_terminal)) {
         return first[lhs_non_terminal];
     }
@@ -110,9 +109,9 @@ void ParsingTableBuilder::extract_follow() {
 
                 } while (n >= 0 && have_epsilon(first[s]));
             }
+        }
         if (!changed) break;
     }
-}
 }
 
 bool ParsingTableBuilder::have_epsilon(std::set<std::pair<std::vector<std::string>, std::string >> &tokens) {
@@ -153,16 +152,9 @@ void ParsingTableBuilder::run_extract_table() {
             temp.first.second = sec.second;
             temp.second = sec.first;
             if (table[{it.first, sec.second}].size() != 0) {
-                std::cerr << "DEbug " << std::endl;
-                std::cerr << it.first << ' ' <<sec.second << std::endl;
-                for(auto &v :table[{it.first, sec.second}]) {
-                    std::cerr << v << ' ' ;
-                }
-                assert(false ) ;
-//                throw "the productions are ambiguous";
+                throw "the productions are ambiguous";
             }
-            table[{it.first, sec.second}] = sec.first;
-//            table.insert(temp);
+            table.insert(temp);
         }
         if (have_epsilon(first[it.first])) {
             for (std::string sec: follow[it.first]) {
