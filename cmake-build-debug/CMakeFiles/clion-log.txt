@@ -1,4 +1,4 @@
-"C:\Program Files\JetBrains\CLion 2021.1.2\bin\cmake\win\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - MinGW Makefiles" D:\Study\projects\Parser\Java_Compiler_Phase2
+"C:\Program Files\JetBrains\CLion 2019.3.2\bin\cmake\win\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - MinGW Makefiles" "F:\SYNCED\3rd year - 2nd term\Compilers\Java_Compiler_phase_2\Java_Compiler_Phase2"
 -- Configuring done
 -- Generating done
--- Build files have been written to: D:/Study/projects/Parser/Java_Compiler_Phase2/cmake-build-debug
+-- Build files have been written to: F:/SYNCED/3rd year - 2nd term/Compilers/Java_Compiler_phase_2/Java_Compiler_Phase2/cmake-build-debug

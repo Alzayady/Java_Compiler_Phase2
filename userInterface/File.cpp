@@ -91,6 +91,8 @@ void File::readFromFile(std::ifstream &file){
 void File::sendToParserTable() {
     ParsingTableBuilder parsingTableBuilder(expressions, is_terminal, start);
     parsingTableBuilder.build();
+
+
 }
 
 void File::go() {

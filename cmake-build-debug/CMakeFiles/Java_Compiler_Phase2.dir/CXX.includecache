@@ -6,23 +6,3 @@
 
 #IncludeRegexTransform: 
 
-D:/Study/projects/Parser/Java_Compiler_Phase2/def/ParsingTableBuilder.h
-iostream
--
-vector
--
-unordered_map
--
-unordered_set
--
-map
--
-
-D:/Study/projects/Parser/Java_Compiler_Phase2/src/ParsingTableBuilder.cpp
-set
--
-map
--
-../def/ParsingTableBuilder.h
-D:/Study/projects/Parser/Java_Compiler_Phase2/def/ParsingTableBuilder.h
-
