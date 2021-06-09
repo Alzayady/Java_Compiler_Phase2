@@ -54,7 +54,6 @@ private:
     std::map<std::pair<std::string, std::string>, std::vector<std::string>> table;
     std::map<std::string, std::unordered_set<std::string>> sync_table;
 
-
     std::set<std::pair<std::vector<std::string>, std::string >>
     extract_first_recusively(const std::string &lhs_non_terminal,
                              std::unordered_set<std::string> &visited);

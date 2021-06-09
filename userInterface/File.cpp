@@ -5,6 +5,8 @@
 #include "File.h"
 #include <regex>
 #include <fstream>
+#include <set>
+#include "../def/ParsingTableBuilder.h"
 
 File::File(std::string path) {
     this->path = path;
@@ -79,7 +81,7 @@ void File::readFromFile(std::ifstream &file){
 }
 
 void File::sendToParserTable() {
-    //call method of salama to send map
+    ParsingTableBuilder parsingTableBuilder(expressions, is_terminal, start);
 }
 
 void File::go() {
