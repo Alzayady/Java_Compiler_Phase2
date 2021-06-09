@@ -1,9 +1,10 @@
 #include "../def/InputMatcher.h"
+
 //
 // Created by Hamza  on 6/9/2021.
 //
-bool debug_mode = false;
-const string epsilon = "Epsilon";
+bool debug_mode = true;
+const string epsilon = "\\L";
 
 vector<string> InputMatcher::match_helper(vector<string> input) {
     unordered_set<string> non_terminals;
@@ -64,7 +65,6 @@ vector<string> InputMatcher::match_helper(vector<string> input) {
                 for (auto log : logs)
                     ans.back() += (" " + log);
             } else {
-//                assert(false);
                 // we have to skip input up to the next sync input
                 if (!recover[cur_state].count(cur_token)) {
                     // this means that we are going to skip the current input until we found a sync or a transition
@@ -88,6 +88,7 @@ vector<string> InputMatcher::match_helper(vector<string> input) {
 
 
     }
+
     if (!stk.empty()) {
         ans.push_back("Couldn't find a match !!!!!!");
     }

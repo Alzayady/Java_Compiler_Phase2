@@ -187,6 +187,7 @@ void ParsingTableBuilder::build() {
 }
 
 void ParsingTableBuilder::print_first_follow() {
+    return ;
     std::cout << "non_terminal\t\t\tfirst\t\t\tfollow" << std::endl;
     for (auto &x: first) {
         if (!is_terminal[x.first] && x.first != epsilon) {

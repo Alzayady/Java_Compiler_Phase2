@@ -7,6 +7,7 @@
 #include <fstream>
 #include <set>
 #include "../def/ParsingTableBuilder.h"
+#include "../def/InputMatcher.h"
 
 File::File(std::string path) {
     this->path = path;
@@ -91,6 +92,13 @@ void File::readFromFile(std::ifstream &file){
 void File::sendToParserTable() {
     ParsingTableBuilder parsingTableBuilder(expressions, is_terminal, start);
     parsingTableBuilder.build();
+    InputMatcher in(parsingTableBuilder.get_table(), parsingTableBuilder.get_sync_table(), "METHOD_BODY");
+    // int id , id , id ;
+    vector<string> ans = in.match({"int", "id", ";" , "$"});
+    for (auto log : ans) {
+        std::cerr << log << std::endl;
+    }
+    std::cerr << "Input matching finished " << std::endl;
 }
 
 void File::go() {

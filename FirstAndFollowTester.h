@@ -4,9 +4,11 @@
 
 #ifndef JAVA_COMPILER_PHASE2_FIRSTANDFOLLOWTESTER_H
 #define JAVA_COMPILER_PHASE2_FIRSTANDFOLLOWTESTER_H
+bool zayady_debug_mode = false;
 
 #include <set>
 #include "./def/ParsingTableBuilder.h"
+#include "def/InputMatcher.h"
 
 class FirstAndFollowTester {
 public:
@@ -21,44 +23,38 @@ public:
         parsingTableBuilder.run_extract_table();
         auto it = parsingTableBuilder.get_table();
         auto itt = parsingTableBuilder.get_sync_table();
-        for (auto a : it) {
-            std::cout << a.first.first << "  " << a.first.second << std::endl;
-            for (auto b : a.second) {
-                std::cout << b << " ";
-            }
-            std::cout << std::endl;
-            std::cout << std::endl;
-            std::cout << "=================================" << std::endl;
-        }
-        std::cout<<"sync"<<std::endl;
-        for (auto a : itt) {
-            std::cout << a.first << "  " << std::endl;
-            for (auto b : a.second) {
-                std::cout << b << " ";
-            }
-            std::cout << std::endl;
-            std::cout << std::endl;
-            std::cout << "=================================" << std::endl;
-        }
+        if (zayady_debug_mode) {
+            for (auto a : it) {
+                std::cout << a.first.first << "  " << a.first.second << std::endl;
+                for (auto b : a.second) {
+                    std::cout << b << " ";
+                }
 
+                std::cout << std::endl;
+                std::cout << std::endl;
+                std::cout << "=================================" << std::endl;
 
-//        std::cout << "non_terminal\t\tfirst\t\t\tfollow" << std::endl;
-//        for (auto &x: first) {
-//            if (!is_terminal[x.first] && x.first != "Epsilon") {
-//                std::string non_terminal = x.first;
-//                std::cout << x.first + "\t\t\t";
-//                std::cout << "{ ";
-//                for (const auto &it : x.second) {
-//                    std::cout << it.second + ", ";
-//                }
-//                std::cout << "}\t\t";
-//                std::cout << "{ ";
-//                for (const auto &it : follow[x.first]) {
-//                    std::cout << it + ", ";
-//                }
-//                std::cout << "}" << std::endl;
-//            }
-//        }
+            }
+            std::cout << "sync" << std::endl;
+            for (auto a : itt) {
+                std::cout << a.first << "  " << std::endl;
+                for (auto b : a.second) {
+                    std::cout << b << " ";
+                }
+                std::cout << std::endl;
+                std::cout << std::endl;
+                std::cout << "=================================" << std::endl;
+            }
+
+        }
+        InputMatcher in(it, itt, "METHOD_BODY");
+        // int id , id , id ;
+        vector<string> ans = in.match({"int", "id", ",", "id", ";"});
+        for (auto log : ans) {
+            std::cout << log << std::endl;
+        }
+        std::cout << "Input matching finished " << std::endl;
+
     }
 
     static std::unordered_map<std::string, bool> generate_is_terminal_map() {
@@ -121,15 +117,19 @@ public:
         productions.insert({"T", vv3});
         productions.insert({"F", vv4});
         productions.insert({"T'", vv5});
-        for (auto &production: productions) {
-            std::cout << production.first + " --> ";
-            for (auto &x: production.second) {
-                for (auto &y: x) {
-                    std::cout << y + " ";
+
+        if (zayady_debug_mode) {
+            for (auto &production: productions) {
+                std::cout << production.first + " --> ";
+                for (auto &x: production.second) {
+                    for (auto &y: x) {
+                        std::cout << y + " ";
+                    }
+                    std::cout << "| ";
                 }
-                std::cout << "| ";
+                std::cout << std::endl;
             }
-            std::cout << std::endl;
+
         }
         return productions;
     }
