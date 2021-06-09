@@ -6,12 +6,6 @@
 
 #IncludeRegexTransform: 
 
-D:/Study/projects/Parser/Java_Compiler_Phase2/FirstAndFollowTester.h
-set
--
-./def/ParsingTableBuilder.h
-D:/Study/projects/Parser/Java_Compiler_Phase2/def/ParsingTableBuilder.h
-
 D:/Study/projects/Parser/Java_Compiler_Phase2/def/ParsingTableBuilder.h
 iostream
 -
@@ -24,21 +18,11 @@ unordered_set
 map
 -
 
-D:/Study/projects/Parser/Java_Compiler_Phase2/main.cpp
-iostream
+D:/Study/projects/Parser/Java_Compiler_Phase2/src/ParsingTableBuilder.cpp
+set
 -
-userInterface/File.h
-D:/Study/projects/Parser/Java_Compiler_Phase2/userInterface/File.h
-unordered_map
+map
 -
-FirstAndFollowTester.h
-D:/Study/projects/Parser/Java_Compiler_Phase2/FirstAndFollowTester.h
-
-D:/Study/projects/Parser/Java_Compiler_Phase2/userInterface/File.h
-iostream
--
-unordered_map
--
-vector
--
+../def/ParsingTableBuilder.h
+D:/Study/projects/Parser/Java_Compiler_Phase2/def/ParsingTableBuilder.h
 

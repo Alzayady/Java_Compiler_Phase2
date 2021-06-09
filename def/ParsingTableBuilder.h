@@ -19,9 +19,6 @@ public:
 
     }
 
-    void extract_first();
-
-    void extract_follow();
 
 
     std::unordered_map<std::string, std::set<std::pair<std::vector<std::string>, std::string>>> get_first() {
@@ -40,7 +37,7 @@ public:
         return sync_table;
     }
 
-
+    void build();
     void run_extract_table();
 
 private:
@@ -50,7 +47,7 @@ private:
     //                                                               production    , symbol
     std::unordered_map<std::string, std::unordered_set<std::string>> follow;
     std::string starting_symbol;
-    std::string epsilon = "Epsilon";
+    std::string epsilon = "\\L";
     std::map<std::pair<std::string, std::string>, std::vector<std::string>> table;
     std::map<std::string, std::unordered_set<std::string>> sync_table;
 
@@ -61,7 +58,9 @@ private:
     std::string get_last_non_terminal(int &index, std::vector<std::string> vector);
 
     bool have_epsilon(std::set<std::pair<std::vector<std::string>, std::string>> &tokens);
-
+    void extract_first();
+    void extract_follow();
+    void print_first_follow();
 
 };
 

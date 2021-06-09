@@ -15,8 +15,7 @@ public:
         std::unordered_map<std::string, bool> is_terminal = generate_is_terminal_map();
 
         ParsingTableBuilder parsingTableBuilder(productions, is_terminal, "E");
-        parsingTableBuilder.extract_first();
-        parsingTableBuilder.extract_follow();
+        parsingTableBuilder.build();
         std::unordered_map<std::string, std::set<std::pair<std::vector<std::string>, std::string>>> first = parsingTableBuilder.get_first();
         std::unordered_map<std::string, std::unordered_set<std::string>> follow = parsingTableBuilder.get_follow();
         parsingTableBuilder.run_extract_table();
@@ -43,23 +42,23 @@ public:
         }
 
 
-        std::cout << "non_terminal\t\tfirst\t\t\tfollow" << std::endl;
-        for (auto &x: first) {
-            if (!is_terminal[x.first] && x.first != "Epsilon") {
-                std::string non_terminal = x.first;
-                std::cout << x.first + "\t\t\t";
-                std::cout << "{ ";
-                for (const auto &it : x.second) {
-                    std::cout << it.second + ", ";
-                }
-                std::cout << "}\t\t";
-                std::cout << "{ ";
-                for (const auto &it : follow[x.first]) {
-                    std::cout << it + ", ";
-                }
-                std::cout << "}" << std::endl;
-            }
-        }
+//        std::cout << "non_terminal\t\tfirst\t\t\tfollow" << std::endl;
+//        for (auto &x: first) {
+//            if (!is_terminal[x.first] && x.first != "Epsilon") {
+//                std::string non_terminal = x.first;
+//                std::cout << x.first + "\t\t\t";
+//                std::cout << "{ ";
+//                for (const auto &it : x.second) {
+//                    std::cout << it.second + ", ";
+//                }
+//                std::cout << "}\t\t";
+//                std::cout << "{ ";
+//                for (const auto &it : follow[x.first]) {
+//                    std::cout << it + ", ";
+//                }
+//                std::cout << "}" << std::endl;
+//            }
+//        }
     }
 
     static std::unordered_map<std::string, bool> generate_is_terminal_map() {
