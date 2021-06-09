@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="Java_Compiler_Phase2"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="F:/SYNCED/3rd year - 2nd term/Compilers/Java_Compiler_phase_2/Java_Compiler_Phase2/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="C:/PROGRA~2/MINGW-~1/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/bin/mingw32-make.exe -f &quot;F:/SYNCED/3rd year - 2nd term/Compilers/Java_Compiler_phase_2/Java_Compiler_Phase2/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="C:/PROGRA~2/MINGW-~1/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/bin/mingw32-make.exe -f &quot;F:/SYNCED/3rd year - 2nd term/Compilers/Java_Compiler_phase_2/Java_Compiler_Phase2/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~2/MINGW-~1/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/bin/mingw32-make.exe -f &quot;F:/SYNCED/3rd year - 2nd term/Compilers/Java_Compiler_phase_2/Java_Compiler_Phase2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~2/MINGW-~1/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/bin/mingw32-make.exe -f &quot;F:/SYNCED/3rd year - 2nd term/Compilers/Java_Compiler_phase_2/Java_Compiler_Phase2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="Java_Compiler_Phase2">
+				<Option output="F:/SYNCED/3rd year - 2nd term/Compilers/Java_Compiler_phase_2/Java_Compiler_Phase2/cmake-build-debug/Java_Compiler_Phase2.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="F:/SYNCED/3rd year - 2nd term/Compilers/Java_Compiler_phase_2/Java_Compiler_Phase2/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="F:/SYNCED/3rd year - 2nd term/Compilers/Java_Compiler_phase_2/Java_Compiler_Phase2/."/>
+					<Add directory="F:/SYNCED/3rd year - 2nd term/Compilers/Java_Compiler_phase_2/Java_Compiler_Phase2/def"/>
+					<Add directory="F:/SYNCED/3rd year - 2nd term/Compilers/Java_Compiler_phase_2/Java_Compiler_Phase2/src"/>
+					<Add directory="F:/SYNCED/3rd year - 2nd term/Compilers/Java_Compiler_phase_2/Java_Compiler_Phase2/userInterface"/>
+					<Add directory="C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/bin/../lib/gcc/i686-w64-mingw32/8.1.0/include/c++"/>
+					<Add directory="C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/bin/../lib/gcc/i686-w64-mingw32/8.1.0/include/c++/i686-w64-mingw32"/>
+					<Add directory="C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/bin/../lib/gcc/i686-w64-mingw32/8.1.0/include/c++/backward"/>
+					<Add directory="C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/bin/../lib/gcc/i686-w64-mingw32/8.1.0/include"/>
+					<Add directory="C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/bin/../lib/gcc/i686-w64-mingw32/8.1.0/include-fixed"/>
+					<Add directory="C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/bin/../lib/gcc/i686-w64-mingw32/8.1.0/../../../../i686-w64-mingw32/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="C:/PROGRA~2/MINGW-~1/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/bin/mingw32-make.exe -f &quot;F:/SYNCED/3rd year - 2nd term/Compilers/Java_Compiler_phase_2/Java_Compiler_Phase2/cmake-build-debug/Makefile&quot;  VERBOSE=1 Java_Compiler_Phase2"/>
+					<CompileFile command="C:/PROGRA~2/MINGW-~1/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/bin/mingw32-make.exe -f &quot;F:/SYNCED/3rd year - 2nd term/Compilers/Java_Compiler_phase_2/Java_Compiler_Phase2/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~2/MINGW-~1/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/bin/mingw32-make.exe -f &quot;F:/SYNCED/3rd year - 2nd term/Compilers/Java_Compiler_phase_2/Java_Compiler_Phase2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~2/MINGW-~1/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/bin/mingw32-make.exe -f &quot;F:/SYNCED/3rd year - 2nd term/Compilers/Java_Compiler_phase_2/Java_Compiler_Phase2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="Java_Compiler_Phase2/fast">
+				<Option output="F:/SYNCED/3rd year - 2nd term/Compilers/Java_Compiler_phase_2/Java_Compiler_Phase2/cmake-build-debug/Java_Compiler_Phase2.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="F:/SYNCED/3rd year - 2nd term/Compilers/Java_Compiler_phase_2/Java_Compiler_Phase2/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="F:/SYNCED/3rd year - 2nd term/Compilers/Java_Compiler_phase_2/Java_Compiler_Phase2/."/>
+					<Add directory="F:/SYNCED/3rd year - 2nd term/Compilers/Java_Compiler_phase_2/Java_Compiler_Phase2/def"/>
+					<Add directory="F:/SYNCED/3rd year - 2nd term/Compilers/Java_Compiler_phase_2/Java_Compiler_Phase2/src"/>
+					<Add directory="F:/SYNCED/3rd year - 2nd term/Compilers/Java_Compiler_phase_2/Java_Compiler_Phase2/userInterface"/>
+					<Add directory="C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/bin/../lib/gcc/i686-w64-mingw32/8.1.0/include/c++"/>
+					<Add directory="C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/bin/../lib/gcc/i686-w64-mingw32/8.1.0/include/c++/i686-w64-mingw32"/>
+					<Add directory="C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/bin/../lib/gcc/i686-w64-mingw32/8.1.0/include/c++/backward"/>
+					<Add directory="C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/bin/../lib/gcc/i686-w64-mingw32/8.1.0/include"/>
+					<Add directory="C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/bin/../lib/gcc/i686-w64-mingw32/8.1.0/include-fixed"/>
+					<Add directory="C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/bin/../lib/gcc/i686-w64-mingw32/8.1.0/../../../../i686-w64-mingw32/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="C:/PROGRA~2/MINGW-~1/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/bin/mingw32-make.exe -f &quot;F:/SYNCED/3rd year - 2nd term/Compilers/Java_Compiler_phase_2/Java_Compiler_Phase2/cmake-build-debug/Makefile&quot;  VERBOSE=1 Java_Compiler_Phase2/fast"/>
+					<CompileFile command="C:/PROGRA~2/MINGW-~1/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/bin/mingw32-make.exe -f &quot;F:/SYNCED/3rd year - 2nd term/Compilers/Java_Compiler_phase_2/Java_Compiler_Phase2/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~2/MINGW-~1/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/bin/mingw32-make.exe -f &quot;F:/SYNCED/3rd year - 2nd term/Compilers/Java_Compiler_phase_2/Java_Compiler_Phase2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~2/MINGW-~1/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/bin/mingw32-make.exe -f &quot;F:/SYNCED/3rd year - 2nd term/Compilers/Java_Compiler_phase_2/Java_Compiler_Phase2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="F:/SYNCED/3rd year - 2nd term/Compilers/Java_Compiler_phase_2/Java_Compiler_Phase2/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="C:/PROGRA~2/MINGW-~1/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/bin/mingw32-make.exe -f &quot;F:/SYNCED/3rd year - 2nd term/Compilers/Java_Compiler_phase_2/Java_Compiler_Phase2/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="C:/PROGRA~2/MINGW-~1/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/bin/mingw32-make.exe -f &quot;F:/SYNCED/3rd year - 2nd term/Compilers/Java_Compiler_phase_2/Java_Compiler_Phase2/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~2/MINGW-~1/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/bin/mingw32-make.exe -f &quot;F:/SYNCED/3rd year - 2nd term/Compilers/Java_Compiler_phase_2/Java_Compiler_Phase2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~2/MINGW-~1/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/bin/mingw32-make.exe -f &quot;F:/SYNCED/3rd year - 2nd term/Compilers/Java_Compiler_phase_2/Java_Compiler_Phase2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="F:/SYNCED/3rd year - 2nd term/Compilers/Java_Compiler_phase_2/Java_Compiler_Phase2/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="C:/PROGRA~2/MINGW-~1/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/bin/mingw32-make.exe -f &quot;F:/SYNCED/3rd year - 2nd term/Compilers/Java_Compiler_phase_2/Java_Compiler_Phase2/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="C:/PROGRA~2/MINGW-~1/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/bin/mingw32-make.exe -f &quot;F:/SYNCED/3rd year - 2nd term/Compilers/Java_Compiler_phase_2/Java_Compiler_Phase2/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~2/MINGW-~1/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/bin/mingw32-make.exe -f &quot;F:/SYNCED/3rd year - 2nd term/Compilers/Java_Compiler_phase_2/Java_Compiler_Phase2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~2/MINGW-~1/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/bin/mingw32-make.exe -f &quot;F:/SYNCED/3rd year - 2nd term/Compilers/Java_Compiler_phase_2/Java_Compiler_Phase2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="F:/SYNCED/3rd year - 2nd term/Compilers/Java_Compiler_phase_2/Java_Compiler_Phase2/FirstAndFollowTester.h">
+			<Option target="Java_Compiler_Phase2"/>
+		</Unit>
+		<Unit filename="F:/SYNCED/3rd year - 2nd term/Compilers/Java_Compiler_phase_2/Java_Compiler_Phase2/def/InputMatcher.h">
+			<Option target="Java_Compiler_Phase2"/>
+		</Unit>
+		<Unit filename="F:/SYNCED/3rd year - 2nd term/Compilers/Java_Compiler_phase_2/Java_Compiler_Phase2/def/ParsingTableBuilder.h">
+			<Option target="Java_Compiler_Phase2"/>
+		</Unit>
+		<Unit filename="F:/SYNCED/3rd year - 2nd term/Compilers/Java_Compiler_phase_2/Java_Compiler_Phase2/main.cpp">
+			<Option target="Java_Compiler_Phase2"/>
+		</Unit>
+		<Unit filename="F:/SYNCED/3rd year - 2nd term/Compilers/Java_Compiler_phase_2/Java_Compiler_Phase2/src/InputMatcher.cpp">
+			<Option target="Java_Compiler_Phase2"/>
+		</Unit>
+		<Unit filename="F:/SYNCED/3rd year - 2nd term/Compilers/Java_Compiler_phase_2/Java_Compiler_Phase2/src/ParsingTableBuilder.cpp">
+			<Option target="Java_Compiler_Phase2"/>
+		</Unit>
+		<Unit filename="F:/SYNCED/3rd year - 2nd term/Compilers/Java_Compiler_phase_2/Java_Compiler_Phase2/userInterface/File.cpp">
+			<Option target="Java_Compiler_Phase2"/>
+		</Unit>
+		<Unit filename="F:/SYNCED/3rd year - 2nd term/Compilers/Java_Compiler_phase_2/Java_Compiler_Phase2/userInterface/File.h">
+			<Option target="Java_Compiler_Phase2"/>
+		</Unit>
+		<Unit filename="F:/SYNCED/3rd year - 2nd term/Compilers/Java_Compiler_phase_2/Java_Compiler_Phase2/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>
