@@ -1,1 +1,0 @@
-/usr/bin/c++ -g CMakeFiles/Java_Compiler_Phase2.dir/src/ParsingTableBuilder.cpp.o CMakeFiles/Java_Compiler_Phase2.dir/userInterface/File.cpp.o CMakeFiles/Java_Compiler_Phase2.dir/main.cpp.o -o Java_Compiler_Phase2 
