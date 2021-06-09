@@ -58,6 +58,8 @@ void File::addExpression(std::string expression) {
         if (expression[i] == ' ' or expression[i] == '#') continue;
         key+=expression[i];
     }
+    static bool ok = (start = key, true);
+
     expressions[key] = divideProduction(expression, i+1);
 }
 
@@ -76,7 +78,7 @@ void File::readFromFile(std::ifstream &file){
     addExpression(exp);
 }
 
-void sendToParserTable() {
+void File::sendToParserTable() {
     //call method of salama to send map
 }
 
