@@ -34,7 +34,6 @@ void ParsingTableBuilder::extract_first() {
 
 std::set<std::pair<std::vector<std::string>, std::string >> ParsingTableBuilder
 ::extract_first_recusively(const std::string &lhs_non_terminal, std::unordered_set<std::string> &visited) {
-    std::cout << "zeft" << std::endl;
     if (visited.count(lhs_non_terminal)) {
         return first[lhs_non_terminal];
     }
@@ -55,7 +54,6 @@ std::set<std::pair<std::vector<std::string>, std::string >> ParsingTableBuilder
                 temp.insert({y, it.second});
             }
             result_set = temp;
-
             first[lhs_non_terminal].insert(result_set.begin(), result_set.end());
             bool is_epsilon_exist = false;
             for (const auto &it : result_set) {
@@ -160,23 +158,9 @@ void ParsingTableBuilder::run_extract_table() {
                         equal = false;
                     }
                 }
-                for(auto v : existed) {
-                    std::cerr << v << ' ' ;
-                }
-                std::cerr << std::endl;
-                for(auto v : sec.first) {
-                    std::cerr << v << ' ' ;
-                }
-                std::cerr << std::endl;
                 assert(equal);
             }
             table[{it.first, sec.second}] = temp.second;
-//            if (table[{it.first, sec.second}].size() != 0) {
-//                for (int i = 0; i < std::min(temp.first))
-//                    assert(false);
-////                throw "the productions are ambiguous";
-//            }
-//            table.insert(temp);
         }
         if (have_epsilon(first[it.first])) {
             for (std::string sec: follow[it.first]) {
@@ -197,8 +181,9 @@ void ParsingTableBuilder::run_extract_table() {
 void ParsingTableBuilder::build() {
     extract_first();
     extract_follow();
-    print_first_follow();
     run_extract_table();
+    print_first_follow();
+
 }
 
 void ParsingTableBuilder::print_first_follow() {
@@ -219,6 +204,31 @@ void ParsingTableBuilder::print_first_follow() {
             std::cout << "}" << std::endl;
         }
     }
+
+    std::unordered_set<std::string> inputs;
+    std::unordered_set<std::string> colums;
+
+    for (auto it : table) {
+        inputs.insert(it.first.second);
+        colums.insert(it.first.first);
+    }
+    std::cout<<"        ";
+    for (auto it : inputs) {
+        std::cout << it << "         ";
+    }
+    std::cout << std::endl;
+    for (auto itt : colums) {
+        std::cout << itt << "     |||";
+        for (auto it : inputs) {
+            std::vector<std::string> v = table[{itt, it}];
+            for (auto manfy : v) {
+                std::cout << manfy << " ";
+            }
+            std::cout << "  &";
+        }
+        std::cout << std::endl;
+    }
+
 }
 
 

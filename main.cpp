@@ -5,7 +5,7 @@
 
 int main() {
     FirstAndFollowTester firstAndFollowTester;
-    firstAndFollowTester.unit_test();
+//    firstAndFollowTester.unit_test();
     File file("../input.txt");
     try{
         file.go();
