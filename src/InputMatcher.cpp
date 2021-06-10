@@ -3,10 +3,18 @@
 //
 // Created by Hamza  on 6/9/2021.
 //
-bool debug_mode = true;
+bool debug_mode = false;
 const string epsilon = "\\L";
 
-
+void InputMatcher::setTable(map<pair<string, string>, vector<string> > parsing_table,
+                            map<string, unordered_set<string>> sync_table, string start) {
+    this->start = start;
+    recover = sync_table;
+    table = parsing_table;
+    fill_non_terminals();
+    stk.push_back("$");
+    stk.push_back(start);
+}
 
 bool InputMatcher::match_helper(string input, string &log) {
     string cur_token = input;
@@ -85,8 +93,8 @@ vector<string> InputMatcher::match_one_token(string input) {
     bool ok = match_helper(input, log);
     while (!ok) {
         ans.push_back(log);
-        std::cout << "Log: " <<  log << std::endl;
-        log.clear() ;
+        std::cout << "Log: " << log << std::endl;
+        log.clear();
         ok = match_helper(input, log);
     }
     std::cout << log << std::endl;

@@ -22,18 +22,18 @@ using std::unordered_set;
 class InputMatcher {
 public:
 
-    InputMatcher(map<pair<string, string>, vector<string> > parsing_table,
-                 map<string, unordered_set<string>> sync_table, string start) :
-            table(parsing_table),
-            recover(sync_table), start(start) {
-        fill_non_terminals();
-        stk.push_back("$");
-        stk.push_back(start);
-    }
+    void setTable(map<pair<string, string>, vector<string> > parsing_table,
+                  map<string, unordered_set<string>> sync_table, string start);
 
     vector<string> match(string input);
 
+    static InputMatcher& getInstance(){
+        static InputMatcher inputMatcher;
+        return inputMatcher;
+    }
+
 private:
+    InputMatcher(){}
     unordered_set<string> non_terminals;
     map<pair<string, string>, vector<string> > table;
     vector<string> stk;
