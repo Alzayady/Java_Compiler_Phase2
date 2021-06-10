@@ -1,0 +1,9 @@
+Log: S -->  A b S
+Log: A -->  c A d
+Log: matching the token c
+Log: Couldn't find a transition, we are going to skip the input
+Log: A -->  a
+Log: matching the token a
+Log: matching the token d
+Log: matching the token b
+Log: S -->  eps

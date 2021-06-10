@@ -1,0 +1,13 @@
+Log: E -->  T E'
+Log: T -->  F T'
+Log: F -->  id
+matching the token id
+Log: T' -->  \L
+Log: E' -->  + T E'
+matching the token +
+Log: T -->  F T'
+Log: F -->  id
+matching the token id
+Log: T' -->  \L
+Log: E' -->  \L
+accept the string :)
