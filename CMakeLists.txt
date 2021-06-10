@@ -13,4 +13,6 @@ add_executable(Java_Compiler_Phase2
         userInterface/File.cpp
         userInterface/File.h
         FirstAndFollowTester.h
-        main.cpp)
+#        tests/InputMatcherTester.cpp
+        main.cpp
+        )

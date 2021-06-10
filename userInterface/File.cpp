@@ -93,11 +93,11 @@ void File::readFromFile(std::ifstream &file) {
 void File::sendToParserTable() {
     ParsingTableBuilder parsingTableBuilder(expressions, is_terminal, start);
     parsingTableBuilder.build();
-    InputMatcher in(parsingTableBuilder.get_table(), parsingTableBuilder.get_sync_table(), "METHOD_BODY");
-    // int id , id , id ;
+    InputMatcher::getInstance().setTable(parsingTableBuilder.get_table(), parsingTableBuilder.get_sync_table(), "METHOD_BODY") ;
+//    // int id , id , id ;
     vector<string> input = {"int", "id", ";", "$"};
     for (auto token : input) {
-        in.match(token);
+        InputMatcher::getInstance().match(token);
     }
     std::cerr << "Input matching finished " << std::endl;
 }
