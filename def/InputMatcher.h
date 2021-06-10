@@ -19,9 +19,6 @@ using std::pair;
 using std::unordered_set;
 
 
-//typedef map<pair<string, string>, vector<string> > parsing_table;
-//typedef map<string, unordered_set<string>> sync_table;
-
 class InputMatcher {
 public:
 
@@ -29,17 +26,25 @@ public:
                  map<string, unordered_set<string>> sync_table, string start) :
             table(parsing_table),
             recover(sync_table), start(start) {
-
+        fill_non_terminals();
+        stk.push_back("$");
+        stk.push_back(start);
     }
 
-    vector<string> match(vector<string> input);
+    vector<string> match(string input);
 
 private:
-    vector<string> match_helper(vector<string> input);
-
+    unordered_set<string> non_terminals;
     map<pair<string, string>, vector<string> > table;
+    vector<string> stk;
     map<string, unordered_set<string>> recover;
     string start;
+
+
+
+    void fill_non_terminals();
+    vector<string> match_one_token(string input);
+    bool match_helper(string input, string &log);
 
 };
 

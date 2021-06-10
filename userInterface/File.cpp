@@ -27,29 +27,30 @@ int categorize(std::string &line) {
     static std::string continueExpression = space + "(\\|" + space + subVal + ")+";
     static std::regex regOriginal(originalExpression);
     static std::regex regContinue(continueExpression);
-    if (regex_match(line,regOriginal)) return File::ORIGINAL;
-    if (regex_match(line,regContinue)) return File::CONTINUE;
+    if (regex_match(line, regOriginal)) return File::ORIGINAL;
+    if (regex_match(line, regContinue)) return File::CONTINUE;
     return 0;
 }
 
 std::vector<std::vector<std::string>> File::divideProduction(std::string &expression, int st) {
     std::vector<std::vector<std::string>> val;
-    while(st < expression.size()) {
+    while (st < expression.size()) {
         std::vector<std::string> tmp;
-        while(st < expression.size() and expression[st] not_eq '|') {
+        while (st < expression.size() and expression[st] not_eq '|') {
             if (expression[st] == ' ') {
-                st++; continue;
+                st++;
+                continue;
             }
             std::string str = "";
             if (expression[st] == '\'') {
                 ++st;
-                while(expression[st] not_eq '\'') {
+                while (expression[st] not_eq '\'') {
                     str += expression[st++];
                 }
                 ++st;
                 is_terminal[str] = true;
             } else {
-                while(st < expression.size() and expression[st] not_eq '|' and expression[st] not_eq ' ') {
+                while (st < expression.size() and expression[st] not_eq '|' and expression[st] not_eq ' ') {
                     str += expression[st++];
                 }
             }
@@ -65,18 +66,18 @@ void File::addExpression(std::string expression) {
     if (expression.empty()) return;
     std::string key = "";
     int i = 0;
-    for(; expression[i] not_eq '='; ++i) {
+    for (; expression[i] not_eq '='; ++i) {
         if (expression[i] == ' ' or expression[i] == '#') continue;
-        key+=expression[i];
+        key += expression[i];
     }
     static bool ok = (start = key, true);
 
-    expressions[key] = divideProduction(expression, i+1);
+    expressions[key] = divideProduction(expression, i + 1);
 }
 
-void File::readFromFile(std::ifstream &file){
+void File::readFromFile(std::ifstream &file) {
     std::string line, exp = "";
-    while(std::getline(file, line)) {
+    while (std::getline(file, line)) {
         if (line.empty()) continue;
         int category = categorize(line);
         if (not category or exp.empty() and category == File::CONTINUE) throw line;
@@ -94,9 +95,9 @@ void File::sendToParserTable() {
     parsingTableBuilder.build();
     InputMatcher in(parsingTableBuilder.get_table(), parsingTableBuilder.get_sync_table(), "METHOD_BODY");
     // int id , id , id ;
-    vector<string> ans = in.match({"int", "id", ";" , "$"});
-    for (auto log : ans) {
-        std::cerr << log << std::endl;
+    vector<string> input = {"int", "id", ";", "$"};
+    for (auto token : input) {
+        in.match(token);
     }
     std::cerr << "Input matching finished " << std::endl;
 }

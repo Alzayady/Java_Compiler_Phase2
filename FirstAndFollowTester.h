@@ -47,13 +47,7 @@ public:
             }
 
         }
-        InputMatcher in(it, itt, "METHOD_BODY");
-        // int id , id , id ;
-        vector<string> ans = in.match({"int", "id", ",", "id", ";"});
-        for (auto log : ans) {
-            std::cout << log << std::endl;
-        }
-        std::cout << "Input matching finished " << std::endl;
+
 
     }
 
